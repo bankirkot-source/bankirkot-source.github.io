@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Туры | Константин</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap">
+<style>
+/* Layout: a single narrow "engraved card" column, monogram on top, services as a ruled ledger, contacts as quiet buttons */
+:root {
+  --bg: #10241d;          /* bottle green */
+  --panel: #163027;
+  --ink: #efe8da;         /* ivory */
+  --muted: #b3ab99;
+  --brass: #b89a62;       /* thin rules, monogram */
+  --wine: #6e1f2d;        /* burgundy */
+  --wine-hi: #84283a;
+  --line: rgba(184,154,98,.35);
+  --display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --body: "Manrope", "Segoe UI", Roboto, Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box }
+body {
+  background: var(--bg) radial-gradient(120% 60% at 50% 0%, #1a382d 0%, var(--bg) 60%);
+  color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 56px; min-height: 100%;
+}
+.card { max-width: 460px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px }
+header { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px }
+.mono {
+  width: 92px; height: 92px; border-radius: 50%; border: 1px solid var(--brass);
+  display: grid; place-items: center; position: relative;
+  font-family: var(--display); font-size: 52px; font-weight: 500; color: var(--brass);
+}
+.mono::after { content: ""; position: absolute; inset: 5px; border-radius: 50%; border: 1px solid var(--line) }
+.eyebrow { font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--brass) }
+h1 { font-family: var(--display); font-weight: 600; font-size: clamp(40px, 11vw, 54px); line-height: 1; margin: 0; letter-spacing: .01em; text-wrap: balance }
+.tag { font-family: var(--display); font-style: italic; font-size: 21px; color: var(--muted); margin: 0 }
+.rule { display: flex; align-items: center; gap: 12px; color: var(--brass); font-size: 10px }
+.rule::before, .rule::after { content: ""; flex: 1; height: 1px; background: var(--line) }
+h2 { font-family: var(--body); font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--brass); font-weight: 600; margin: 0 0 6px; text-align: center }
+.services { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column }
+.services li { display: grid; grid-template-columns: 28px 1fr; gap: 4px 12px; padding: 18px 0; border-bottom: 1px solid var(--line) }
+.services li:first-child { border-top: 1px solid var(--line) }
+.services .n { font-family: var(--display); font-size: 20px; color: var(--brass); line-height: 1.2 }
+.services b { font-family: var(--display); font-size: 25px; font-weight: 600; line-height: 1.1 }
+.services p { grid-column: 2; margin: 0; color: var(--muted); font-size: 14.5px }
+.contacts { display: flex; flex-direction: column; gap: 10px }
+.row {
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 4px; min-width: 0;
+}
+.row .k { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--brass); width: 74px; flex: none }
+.row .v { flex: 1; min-width: 0; font-weight: 500; overflow-wrap: anywhere; user-select: all }
+.row a.v { color: var(--ink); text-decoration: none }
+.btn {
+  flex: none; font: 600 12px/1 var(--body); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 3px;
+  padding: 9px 11px; cursor: pointer; text-decoration: none;
+}
+.btn:hover { border-color: var(--brass) }
+.btn.wine { background: var(--wine); border-color: var(--wine) }
+.btn.wine:hover { background: var(--wine-hi) }
+.btn:focus-visible, a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px }
+.cta { display: block; text-align: center; padding: 16px; font-size: 13px }
+footer { text-align: center; color: var(--muted); font-size: 12.5px; display: flex; flex-direction: column; gap: 8px }
+footer .sig { font-family: var(--display); font-style: italic; font-size: 19px; color: var(--ink) }
+@media (prefers-reduced-motion: no-preference) {
+  .card > * { animation: rise .6s ease both }
+  .card > *:nth-child(2) { animation-delay: .08s } .card > *:nth-child(3) { animation-delay: .16s } .card > *:nth-child(4) { animation-delay: .24s }
+  @keyframes rise { from { transform: translateY(8px) } to { transform: none } }
+}
+</style>
+</head>
+<body>
+
+<main class="card">
+  <header>
+    <div class="mono" aria-hidden="true">К</div>
+    <div class="eyebrow">Туры</div>
+    <h1>Константин</h1>
+    <p class="tag">Ваш личный турагент</p>
+  </header>
+
+  <section aria-labelledby="s-uslugi">
+    <h2 id="s-uslugi">Услуги</h2>
+    <ul class="services">
+      <li><span class="n">I</span><b>Подбор туров</b><p>Найду поездку под ваши даты, бюджет и пожелания: пляж, экскурсии, горы, путешествие с детьми.</p></li>
+      <li><span class="n">II</span><b>Сопровождение</b><p>На связи до вылета и во время отдыха: документы, трансфер, вопросы с отелем.</p></li>
+      <li><span class="n">III</span><b>Горящие туры</b><p>Предложения с вылетом в ближайшие дни по выгодной цене.</p></li>
+    </ul>
+  </section>
+
+  <section class="contacts" aria-labelledby="s-svyaz">
+    <h2 id="s-svyaz">Связаться</h2>
+    <div class="row"><span class="k">Телефон</span><a class="v" href="tel:+79507438926" id="phone">+7 950 743-89-26</a><button class="btn" type="button" id="copy-phone" data-copy="+79507438926">Копировать</button></div>
+    <div class="row"><span class="k">Почта</span><a class="v" href="mailto:konstantinsir@bk.ru" id="mail">konstantinsir@bk.ru</a><button class="btn" type="button" id="copy-mail" data-copy="konstantinsir@bk.ru">Копировать</button></div>
+    <a class="btn wine cta" href="https://instagram.com/konstantinsir" target="_blank" rel="noopener">Instagram · @konstantinsir</a>
+  </section>
+
+  <footer>
+    <div class="rule">◆</div>
+    <span class="sig">Хорошего путешествия</span>
+    <span>Напишите или позвоните, подберу тур в течение дня</span>
+  </footer>
+</main>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var text = b.dataset.copy, label = b.textContent;
+    function done(ok) { b.textContent = ok ? 'Скопировано' : 'Выделено'; setTimeout(function () { b.textContent = label }, 1600) }
+    function fallback() {
+      var v = b.parentNode.querySelector('.v'), r = document.createRange();
+      r.selectNodeContents(v); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done(false);
+    }
+    try { navigator.clipboard.writeText(text).then(function () { done(true) }, fallback) } catch (e) { fallback() }
+  });
+});
+</script>
+</body>
+</html>
